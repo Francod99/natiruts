@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blog sobre el Amazonas, sus animales y pueblos indígenas, con un diseño inspirado en la selva amazónica.">
+  <title>El Corazón Verde: Amazonas Vivo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      margin: 0;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: -1;
+    }
+    header {
+      background: rgba(34, 139, 34, 0.9);
+      color: #fff;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #d4a373;
+    }
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    section {
+      background: rgba(245, 245, 220, 0.95);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    section:hover {
+      transform: translateY(-5px);
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: #2e8b57;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #d4a373;
+      padding-bottom: 0.5rem;
+    }
+    .info-card {
+      background: #f0fff0;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      border-left: 5px solid #228b22;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    .info-card:hover {
+      background: #e6ffe6;
+    }
+    .info-card h3 {
+      color: #556b2f;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      background: rgba(34, 139, 34, 0.9);
+      color: #fff;
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+    footer a {
+      color: #d4a373;
+      transition: color 0.3s ease;
+    }
+    footer a:hover {
+      color: #fff;
+    }
+    .footer-input {
+      padding: 0.5rem;
+      border: 1px solid #d4a373;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.9);
+      transition: border-color 0.3s ease;
+    }
+    .footer-input:focus {
+      outline: none;
+      border-color: #fff;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    .btn-contact {
+      background: #d4a373;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    .btn-contact:hover {
+      background: #b8860b;
+    }
+    .raindrop-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .raindrop {
+      position: absolute;
+      width: 2px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.7);
+      animation: rain 2s linear infinite;
+    }
+    @keyframes rain {
+      0% { transform: translateY(-100px); opacity: 0.7; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.5rem; }
+      nav a { margin: 0 0.5rem; font-size: 0.9rem; }
+      section { padding: 1rem; }
+      h2 { font-size: 1.5rem; }
+      .info-card h3 { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Animación de gotas de lluvia -->
+  <div class="raindrop-animation" id="raindrop-container"></div>
+
+  <!-- Header -->
+  <header>
+    <h1>El Corazón Verde: Amazonas Vivo</h1>
+    <nav class="text-center mt-2">
+      <a href="#inicio">Inicio</a>
+      <a href="#animales">Animales</a>
+      <a href="#indigenas">Indígenas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Sección de Animales -->
+    <section id="animales">
+      <h2>Animales del Amazonas</h2>
+      <div class="info-card">
+        <h3>Jaguar</h3>
+        <p>El jaguar, rey de la selva, es un felino poderoso que habita las densas selvas del Amazonas. Con su fuerza y sigilo, regula el ecosistema cazando presas como ciervos y caimanes. Su pelaje moteado le permite camuflarse perfectamente entre la vegetación.</p>
+      </div>
+      <div class="info-card">
+        <h3>Pirarucú</h3>
+        <p>Este pez de agua dulce, conocido por su gran tamaño (puede alcanzar hasta 3 metros), es vital para los ríos amazónicos. Su carne es una fuente de alimento para muchas comunidades locales, y sus escamas se usan para artesanías. Es un fósil viviente, existiendo desde hace millones de años.</p>
+      </div>
+      <div class="info-card">
+        <h3>Arara</h3>
+        <p>Las araras, con sus colores vibrantes, son un símbolo de la biodiversidad del Amazonas. Viven en bandadas y contribuyen a la dispersión de semillas. La arara azul, una de las especies más conocidas, está en peligro debido a la deforestación y el comercio ilegal.</p>
+      </div>
+      <div class="info-card">
+        <h3>Delfín Rosado</h3>
+        <p>El delfín rosado del Amazonas, conocido como "boto", es una especie única de delfín de río. Su color rosado se intensifica con la edad y la emoción. Según las leyendas locales, se transforma en humano para encantar a las personas durante las fiestas.</p>
+      </div>
+      <div class="info-card">
+        <h3>Anaconda</h3>
+        <p>La anaconda verde es una de las serpientes más grandes del mundo, pudiendo llegar a medir hasta 9 metros. Vive en los ríos y pantanos del Amazonas, donde caza presas como capibaras y aves, utilizando su fuerza para constricción.</p>
+      </div>
+      <div class="info-card">
+        <h3>Perezoso</h3>
+        <p>El perezoso de tres dedos pasa la mayor parte de su vida colgado de los árboles. Su lento metabolismo le permite sobrevivir con una dieta de hojas, y su pelaje alberga algas que lo camuflan entre el follaje, protegiéndolo de depredadores.</p>
+      </div>
+      <div class="info-card">
+        <h3>Mono Aullador</h3>
+        <p>El mono aullador rojo es conocido por su potente vocalización, que puede escucharse a kilómetros de distancia. Vive en grupos familiares y se alimenta principalmente de hojas y frutas, desempeñando un papel clave en la dispersión de semillas.</p>
+      </div>
+      <div class="info-card">
+        <h3>Hormiga Bala</h3>
+        <p>La hormiga bala, conocida por su dolorosa picadura (comparable a una bala), habita los suelos del Amazonas. A pesar de su pequeño tamaño, juega un rol importante en el ecosistema al controlar otras poblaciones de insectos y descomponer materia orgánica.</p>
+      </div>
+    </section>
+
+    <!-- Sección de Indígenas -->
+    <section id="indigenas">
+      <h2>Pueblos Indígenas del Amazonas</h2>
+      <div class="info-card">
+        <h3>Yanomami</h3>
+        <p>Los Yanomami, con unos 29,000 miembros, viven en las fronteras de Brasil y Venezuela. Dependen de la caza, pesca y recolección, enfrentando amenazas por la minería ilegal, que contamina sus ríos con mercurio y destruye sus territorios.</p>
+      </div>
+      <div class="info-card">
+        <h3>Tikuna</h3>
+        <p>Con cerca de 8,000 personas, los Tikuna habitan la cuenca del río Amazonas en Colombia. Su arte, como las máscaras rituales, refleja una profunda conexión con la naturaleza. Practican la agricultura de roza y quema, cultivando yuca y plátano.</p>
+      </div>
+      <div class="info-card">
+        <h3>Huitoto</h3>
+        <p>Los Huitoto, ubicados en el río Putumayo, han resistido invasiones históricas desde la época del caucho. Su conocimiento de plantas medicinales, como la ayahuasca, es clave para su cultura y prácticas espirituales, que buscan armonía con el entorno.</p>
+      </div>
+      <div class="info-card">
+        <h3>Ashaninka</h3>
+        <p>Los Ashaninka, con unas 90,000 personas, viven principalmente en Perú y Brasil. Son conocidos por su resistencia a la colonización y su compromiso con la conservación de la selva. Utilizan tintes naturales para sus textiles, inspirados en la fauna y flora amazónica.</p>
+      </div>
+      <div class="info-card">
+        <h3>Shipibo-Konibo</h3>
+        <p>Este pueblo, asentado a lo largo del río Ucayali en Perú, tiene unos 30,000 miembros. Son famosos por sus diseños geométricos, que representan visiones espirituales y se plasman en cerámicas y textiles. Enfrentan desafíos por la tala ilegal y la contaminación de sus ríos.</p>
+      </div>
+      <div class="info-card">
+        <h3>Awajún</h3>
+        <p>Los Awajún, con aproximadamente 65,000 personas, habitan el norte del Amazonas peruano. Practican la pesca y la caza, y tienen un profundo conocimiento de la biodiversidad local. Su idioma, el aguaruna, es una parte esencial de su identidad cultural.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer con Contacto -->
+  <footer>
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-xl font-bold mb-4">Sobre el Blog</h3>
+        <p>Un espacio para explorar la riqueza del Amazonas, sus animales y sus pueblos indígenas.</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4">Enlaces</h3>
+        <ul class="space-y-2">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#animales">Animales</a></li>
+          <li><a href="#indigenas">Indígenas</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4">Contacto</h3>
+        <p>Email: info@corazonverdeamazonas.com</p>
+        <p>Teléfono: +57 123 456 7890</p>
+        <p>Dirección: Leticia, Amazonas, Colombia</p>
+        <div class="flex gap-2 mt-4">
+          <input type="text" id="contact-name" placeholder="Tu nombre" class="footer-input w-1/2">
+          <input type="email" id="contact-email" placeholder="Tu correo" class="footer-input w-1/2">
+        </div>
+        <div class="flex gap-2 mt-2">
+          <textarea id="contact-message" placeholder="Tu mensaje" class="footer-input w-full h-20"></textarea>
+        </div>
+        <button id="contact-submit" class="btn-contact mt-2">Enviar</button>
+      </div>
+    </div>
+    <div class="mt-8 text-center">
+      <p>© 2025 El Corazón Verde. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Animación de gotas de lluvia
+    const raindropContainer = document.getElementById('raindrop-container');
+    function createRaindrop() {
+      const raindrop = document.createElement('div');
+      raindrop.className = 'raindrop';
+      raindrop.style.left = `${Math.random() * 100}vw`;
+      raindrop.style.animationDuration = `${Math.random() * 2 + 1}s`;
+      raindropContainer.appendChild(raindrop);
+      raindrop.addEventListener('animationend', () => raindrop.remove());
+    }
+    setInterval(createRaindrop, 100);
+
+    // Formulario de contacto
+    const contactSubmit = document.getElementById('contact-submit');
+    contactSubmit.addEventListener('click', () => {
+      const name = document.getElementById('contact-name').value;
+      const email = document.getElementById('contact-email').value;
+      const message = document.getElementById('contact-message').value;
+      if (name && email && message) {
+        alert(`Gracias, ${name}! Tu mensaje ha sido enviado.`);
+        document.getElementById('contact-name').value = '';
+        document.getElementById('contact-email').value = '';
+        document.getElementById('contact-message').value = '';
+      } else {
+        alert('Por favor, completa todos los campos.');
+      }
+    });
+  </script>
+</body>
+</html>
